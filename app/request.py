@@ -11,7 +11,9 @@ api_key = app.config['NEWS_API_KEY']
 #Getting the base url
 base_url = app.config["NEWS_BASE_URL"]
 
-def get_news(country):
+article_url = app.config["NEWS_ARTICLE_URL"]
+
+def get_source(country):
     '''
     Function that gets the json response to our url request
     '''
@@ -26,7 +28,14 @@ def get_news(country):
 
     return news_results
 
-        
+def get_article(source_name):
+    get_articles_url = article_url.format(source_name,api_key)
+
+    with urllib.request.urlopen(get_articles_url) as url:
+        news_details_data = url.read()
+        movie_details_response = json.loads(movie_details_data)
+
+        movie_object = None
 
 def process_results(news_list):
     '''
@@ -42,8 +51,12 @@ def process_results(news_list):
     for news_item in news_list:
         source = news_item.get('source')
         content = news_item.get("content")
+        image = news_item.get("urlToImage")
+        description = news_item.get("description")
+        date_of_creation = news_item.get('publishedAt')
         if content:
             news_object = News(source,content)
+            articles_object = Articles(image,description,date_of_creation)
             news_results.append(news_object)
 
     return news_results
