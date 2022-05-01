@@ -1,9 +1,16 @@
 <body>
     <!-- Popular movie section  -->
-    <h3> Technology news</h3>
+    <h3> American news sources</h3>
      <ul>
-        {% for article in business  %}
-            <li>{{ article.source}}</li>
+        {% for article in usa_news %}
+            <li>{{ article.source.name}}</li>
+        {% endfor %}
+    </ul>
+    
+    <h3>South African  news sources</h3>
+    <ul>
+        {% for article in southafrica_news %}
+            <li>{{ article.source.name}}</li>
         {% endfor %}
     </ul>
 </body>
