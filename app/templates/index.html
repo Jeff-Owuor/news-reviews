@@ -1,16 +1,32 @@
 <body>
     <!-- Popular movie section  -->
-    <h3> American news sources</h3>
-     <ul>
-        {% for article in usa_news %}
+    <div class="row">
+      <div class="col-md-4 col-lg-4 col-sm-4">
+        <h3> American news sources</h3>
+        <ul>
+            {% for article in usa_news %}
+                <li>{{ article.source.name}}</li>
+                <li>{{ article.content}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col-md-4 col-lg-4 col-sm-4">
+    <h3>England news sources</h3>
+    <ul>
+        {% for article in britain_news %}
             <li>{{ article.source.name}}</li>
+            <li>{{ article.content}}</li>
         {% endfor %}
     </ul>
-    
+    </div>
+    <div class="col-md-4 col-lg-4 col-sm-4">
     <h3>South African  news sources</h3>
     <ul>
         {% for article in southafrica_news %}
             <li>{{ article.source.name}}</li>
+            <li>{{ article.content}}</li>
         {% endfor %}
     </ul>
+</div>
+</div>
 </body>

@@ -11,6 +11,6 @@ def index():
     '''
     # Getting popular movie
     usa_news_sources = get_news('us')
-    britain_news_sources = get_news('uk')
+    britain_news_sources = get_news('gb')
     southafrica_news_sources = get_news("za")
     return render_template('index.html',usa_news = usa_news_sources,britain_news = britain_news_sources,southafrica_news= southafrica_news_sources)
