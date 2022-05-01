@@ -1,32 +1,16 @@
+{% import 'macros.html' as macro%}
+
 <body>
-    <!-- Popular movie section  -->
-    <div class="row">
-      <div class="col-md-4 col-lg-4 col-sm-4">
-        <h3> American news sources</h3>
-        <ul>
-            {% for article in usa_news %}
-                <li>{{ article.source.name}}</li>
-                <li>{{ article.content}}</li>
-            {% endfor %}
-        </ul>
+    <h3> American Movie Sources</h3>
+    <div>
+        {{ macro.displayNewsList(usa_news)}}
     </div>
-    <div class="col-md-4 col-lg-4 col-sm-4">
-    <h3>England news sources</h3>
-    <ul>
-        {% for article in britain_news %}
-            <li>{{ article.source.name}}</li>
-            <li>{{ article.content}}</li>
-        {% endfor %}
-    </ul>
+    <h3> United Kingdom Sources </h3>
+    <div>
+        {{ macro.displayNewsList(britain_news)}}
     </div>
-    <div class="col-md-4 col-lg-4 col-sm-4">
-    <h3>South African  news sources</h3>
-    <ul>
-        {% for article in southafrica_news %}
-            <li>{{ article.source.name}}</li>
-            <li>{{ article.content}}</li>
-        {% endfor %}
-    </ul>
-</div>
-</div>
+    <h3>SouthAfrican news sources</h3>
+    <div>
+        {{ macro.displayNewsList(southafrica_news)}}
+    </div>
 </body>
