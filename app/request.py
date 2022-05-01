@@ -4,7 +4,7 @@ import urllib.request,json
 from .models import news
 
 News = news.News_source
-
+Articles = news.News_article
 
 # Getting api key
 api_key = app.config['NEWS_API_KEY']
@@ -25,6 +25,8 @@ def get_news(country):
             news_results = process_results(news_results_list)
 
     return news_results
+
+        
 
 def process_results(news_list):
     '''

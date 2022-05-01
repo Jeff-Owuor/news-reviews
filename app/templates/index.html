@@ -1,16 +1,19 @@
+{% extends 'base.html'%}
 {% import 'macros.html' as macro%}
 
-<body>
-    <h3> American Movie Sources</h3>
-    <div>
+{% block content %}
+    <div class="col-md-4 col-lg-4 text-info">
+        <h2 style="color:black;font-family: 'Courier New', Courier, monospace;"> American Movie Sources</h2>
         {{ macro.displayNewsList(usa_news)}}
     </div>
-    <h3> United Kingdom Sources </h3>
-    <div>
+    
+    <div class="col-md-4 col-lg-4 text-info">
+        <h2 style="color:black;font-family: 'Courier New', Courier, monospace;"> United Kingdom Sources </h2>
         {{ macro.displayNewsList(britain_news)}}
     </div>
-    <h3>SouthAfrican news sources</h3>
-    <div>
+    
+    <div class="col-md-4 col-lg-4 text-info">
+        <h2 style="color:black;font-family: 'Courier New', Courier, monospace;">SouthAfrican news sources</h2>
         {{ macro.displayNewsList(southafrica_news)}}
     </div>
-</body>
+{% endblock %}
