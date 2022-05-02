@@ -30,18 +30,20 @@ def get_source(country):
 
 def get_article(source_name):
     get_articles_url = article_url.format(source_name,api_key)
-    get_article_url = get_articles_url.replace(" ","")
+    get_article_url = get_articles_url.replace(" ","-")
     with urllib.request.urlopen(get_article_url) as url:
         news_details_data = url.read()
-        print(news_details_data)  
         article_details_response = json.loads(news_details_data)
         news_object = None
-        if article_details_response:
-            description = article_details_response.get('description')
-            image = article_details_response.get('urlToImage')
-            date_created = article_details_response.get('publishedAt')
+        article_results_list = article_details_response['articles']
+        article_results = []
+        for article in article_results_list:
+            description = article.get('description')
+            image = article.get('urlToImage')
+            date_created = article.get('publishedAt')
             news_object = Articles(description,image,date_created)
-    return news_object        
+            article_results.append(news_object)
+    return article_results       
 
 def process_results(news_list):
     '''
@@ -57,8 +59,9 @@ def process_results(news_list):
     for news_item in news_list:
         source = news_item.get('source')
         content = news_item.get("content")
-        if content:
-            news_object = News(source,content)
+        description = news_item.get("description")
+        if content and description:
+            news_object = News(source,content,description)
             news_results.append(news_object)
 
     return news_results

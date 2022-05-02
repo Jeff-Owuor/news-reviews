@@ -6,3 +6,12 @@
     {% endfor %}
 
 {% endmacro %}
+{% macro displayArticlesList(articles_list) %}
+   
+    {% for article in articles_list %}
+       <img src={{article.urlToImage}}>
+      <p>{{article.description}}</p>
+      <p>{{article.date_created}}</p>
+    {% endfor %}
+
+{% endmacro %}

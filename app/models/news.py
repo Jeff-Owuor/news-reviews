@@ -3,10 +3,10 @@ class News_source:
     News class to define New Objects
     '''
 
-    def __init__(self,source,content):
+    def __init__(self,source,content,description):
         self.source = source
         self.content = content
-        
+        self.description = description
         
         
 class News_article:
