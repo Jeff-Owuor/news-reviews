@@ -1,4 +1,4 @@
-from cmath import pi
+
 from app import app
 import urllib.request,json
 from .models import news
@@ -59,9 +59,8 @@ def process_results(news_list):
     for news_item in news_list:
         source = news_item.get('source')
         content = news_item.get("content")
-        description = news_item.get("description")
-        if content and description:
-            news_object = News(source,content,description)
+        if content:
+            news_object = News(source,content)
             news_results.append(news_object)
 
     return news_results
