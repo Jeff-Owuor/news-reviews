@@ -41,7 +41,8 @@ def get_article(source_name):
             description = article.get('description')
             image = article.get('urlToImage')
             date_created = article.get('publishedAt')
-            news_object = Articles(description,image,date_created)
+            link_to_article = article.get("url")
+            news_object = Articles(description,image,date_created,link_to_article)
             article_results.append(news_object)
     return article_results       
 

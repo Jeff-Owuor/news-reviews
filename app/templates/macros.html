@@ -10,6 +10,7 @@
    
     {% for article in articles_list %}
     <div class="row">
+        <a href="{{article.link_to_article}}">
     <div class="col-lg-8 col-md-8" style="margin-bottom:12px;">
        <img src="{{article.image}}" class="img-responsive" style="border-radius: 5%;">
     </div>
@@ -17,6 +18,7 @@
       <p>{{article.description}}</p>
       <p>{{article.date_created}}</p>
     </div>
+       </a>  
     </div>
     {% endfor %}
 
