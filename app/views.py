@@ -18,4 +18,4 @@ def index():
 @app.route('/article/<name>')
 def article(name):
     article = get_article(name)
-    return render_template('article.html',article = article)
+    return render_template('article.html',article_gen = article)
