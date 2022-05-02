@@ -1,7 +1,7 @@
 import unittest
 from news import News_source
 
-class NewsTest(unittest.TestCase):
+class SourceTest(unittest.TestCase):
     '''
     Test Class to test the behaviour of the news_source class
     '''
@@ -10,10 +10,10 @@ class NewsTest(unittest.TestCase):
         '''
         Set up method that will run before every Test
         '''
-        self.new_movie = News_source("Associated Press")
+        self.new_source = News_source("Associated Press","This is breaking at the moment")
 
     def test_instance(self):
-        self.assertTrue(isinstance(self.new_movie,News_source))
+        self.assertTrue(isinstance(self.new_source,News_source))
 
 
 if __name__ == '__main__':
