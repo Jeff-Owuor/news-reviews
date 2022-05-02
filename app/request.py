@@ -33,9 +33,17 @@ def get_article(source_name):
 
     with urllib.request.urlopen(get_articles_url) as url:
         news_details_data = url.read()
-        movie_details_response = json.loads(movie_details_data)
+        article_details_response = json.loads(news_details_data)
 
-        movie_object = None
+        news_object = None
+        if article_details_response:
+            description = article_details_response.get('description')
+            image = article_details_response.get('urlToImage')
+            date_created = article_details_response.get('publishedAt')
+            
+            news_object = Articles(description,image,date_created)
+            
+    return news_object        
 
 def process_results(news_list):
     '''

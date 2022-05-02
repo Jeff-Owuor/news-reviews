@@ -1,6 +1,6 @@
 from flask import render_template
 from app import app
-from app.request import get_source
+from app.request import get_source,get_article
 
 # Views
 @app.route('/')
@@ -14,3 +14,8 @@ def index():
     britain_news_sources = get_source('gb')
     southafrica_news_sources = get_source("za")
     return render_template('index.html',usa_news = usa_news_sources,britain_news = britain_news_sources,southafrica_news= southafrica_news_sources)
+
+@app.route('/article/<name>')
+def article(name):
+    article = get_article(name)
+    return render_template('article.html',article = article)

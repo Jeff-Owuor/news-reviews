@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+
+{% block content %}
+  <div class="row">
+      <div class="col-md-6">
+          <img src="{{article.urlToImage}}">
+
+      </div>
+      <div class="col-md-6">
+          <p>{{article.description}}</p>
+          <p>{{article.date_created}}</p>
+      </div>
+  </div>
+  
+{% endblock %}
