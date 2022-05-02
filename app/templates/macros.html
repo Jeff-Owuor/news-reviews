@@ -10,10 +10,10 @@
    
     {% for article in articles_list %}
     <div class="row">
-    <div class="col-lg-8 col-md-8">
-       <img src="{{article.image}}" class="img-responsive">
+    <div class="col-lg-8 col-md-8" style="margin-bottom:12px;">
+       <img src="{{article.image}}" class="img-responsive" style="border-radius: 5%;">
     </div>
-    <div class="col-md-3 col-lg-3 mt-3">
+    <div class="col-md-3 col-lg-3" style="margin-top: 7px;">
       <p>{{article.description}}</p>
       <p>{{article.date_created}}</p>
     </div>
