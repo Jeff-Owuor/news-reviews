@@ -1,5 +1,5 @@
 ### Project description 
-In this particular application (news-to-go) there is a list of various sources from different countries and upon clicking one of the links  a list of all the articles available in that particular source are displayed. Upon clicking the source one can see an image of the article, a description an d the date which the article was published. In the article section you can click either the image, description or date of publish to redirect you to the source website where you can follow the full story.
+In this particular application (news-on-the-go) there is a list of various sources from different countries and upon clicking one of the links  a list of all the articles available in that particular source are displayed. Upon clicking the source one can see an image of the article, a description an d the date which the article was published. In the article section you can click either the image, description or date of publish to redirect you to the source website where you can follow the full story.
 
 ### Setup instructions
 >  $python3.8 -m venv --without-pip virtualFirst install flask using the command: $python3.8 -m venv --without-pip virtual
