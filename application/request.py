@@ -1,5 +1,5 @@
 
-from app import app
+from application import app
 import urllib.request,json
 from . import source_model,articles_model
 

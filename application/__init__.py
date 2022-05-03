@@ -1,9 +1,6 @@
 from flask import Flask
 from flask_bootstrap import Bootstrap
-import sys
-sys.path.append("..")
 from  ..config import config_options
-
 
 bootstrap = Bootstrap()
 
@@ -30,5 +27,5 @@ def create_app(config_name):
 
 
 
-from app.main import views
-from app.main import error
+from application.main import views
+from application.main import error
