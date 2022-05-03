@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_bootstrap import Bootstrap
-
+import sys
+sys.path.append("..")
 from  ..config import config_options
 
 
