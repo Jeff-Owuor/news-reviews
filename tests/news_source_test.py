@@ -1,5 +1,5 @@
 import unittest
-from app.source_model import News_source
+from application.source_model import News_source
 
 
 class SourceTest(unittest.TestCase):
@@ -11,7 +11,7 @@ class SourceTest(unittest.TestCase):
         '''
         Set up method that will run before every Test
         '''
-        self.new_source = News_source("Associated Press","This is breaking at the moment")
+        self.new_source = News_source("Associated Press","bbc-news","This is breaking at the moment")
 
     def test_instance(self):
         self.assertTrue(isinstance(self.new_source,News_source))
