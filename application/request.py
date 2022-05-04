@@ -1,5 +1,4 @@
 
-from application import app
 import urllib.request,json
 from . import source_model,articles_model
 
@@ -14,15 +13,15 @@ base_url = None
 article_url = None
 def configure_request(app):
     global api_key,base_url,article_url
-    api_key = app.config['MOVIE_API_KEY']
-    base_url = app.config['MOVIE_API_BASE_URL']
+    api_key = app.config['NEWS_API_KEY']
+    base_url = app.config['NEWS_BASE_URL']
     article_url = app.config["NEWS_ARTICLE_URL"]
 
 def get_source(country):
     '''
     Function that gets the json response to our url request
     '''
-    get_news_url = base_url.format(country,api_key)
+    get_news_url = base_url.format(country,"4fd2b95bee8d40c581f5588f3a0a9c35")
     with urllib.request.urlopen(get_news_url) as url:
         get_news_data = url.read()
         get_news_response = json.loads(get_news_data)
@@ -34,7 +33,7 @@ def get_source(country):
     return news_results
 
 def get_article(source_name):
-    get_articles_url = article_url.format(source_name,api_key)
+    get_articles_url = article_url.format(source_name,"4fd2b95bee8d40c581f5588f3a0a9c35")
     get_article_url = get_articles_url.replace(" ","-")
     with urllib.request.urlopen(get_article_url) as url:
         news_details_data = url.read()
