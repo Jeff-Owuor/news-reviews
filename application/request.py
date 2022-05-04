@@ -67,5 +67,4 @@ def process_results(news_list):
         brief_description = news_item.get("description")
         news_object = News(source_name,source_id,brief_description)
         news_results.append(news_object)
-
     return news_results
