@@ -9,7 +9,7 @@ Articles = articles_model.News_article
 api_key = None
 # Getting the news sources url
 base_url = None
-#Getting the news articles url
+#Getting the news articles url 
 article_url = None
 def configure_request(app):
     global api_key,base_url,article_url
