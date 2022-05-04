@@ -10,12 +10,10 @@ def index():
     View root page function that returns the index page and its data
     '''
     # Getting popular movie
-    usa_news_sources = get_source('us')
-    britain_news_sources = get_source('gb')
-    southafrica_news_sources = get_source("za")
-    return render_template('index.html',usa_news = usa_news_sources,britain_news = britain_news_sources,southafrica_news= southafrica_news_sources)
+    all_sources = get_source()
+    return render_template('index.html',all_sources = all_sources)
 
-@main.route('/article/<name>')
-def article(name):
-    article = get_article(name)
+@main.route('/article/<id>')
+def article(id):
+    article = get_article(id)
     return render_template('article.html',article_gen = article)

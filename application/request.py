@@ -17,23 +17,23 @@ def configure_request(app):
     base_url = app.config['NEWS_BASE_URL']
     article_url = app.config["NEWS_ARTICLE_URL"]
 
-def get_source(country):
+def get_source():
     '''
     Function that gets the json response to our url request
     '''
-    get_news_url = base_url.format(country,"4fd2b95bee8d40c581f5588f3a0a9c35")
+    get_news_url = base_url.format("4fd2b95bee8d40c581f5588f3a0a9c35")
     with urllib.request.urlopen(get_news_url) as url:
         get_news_data = url.read()
         get_news_response = json.loads(get_news_data)
         news_results = None
-        if get_news_response['articles']:
-            news_results_list = get_news_response['articles']
+        if get_news_response['sources']:
+            news_results_list = get_news_response['sources']
             news_results = process_results(news_results_list)
 
     return news_results
 
-def get_article(source_name):
-    get_articles_url = article_url.format(source_name,"4fd2b95bee8d40c581f5588f3a0a9c35")
+def get_article(id):
+    get_articles_url = article_url.format(id,"4fd2b95bee8d40c581f5588f3a0a9c35")
     get_article_url = get_articles_url.replace(" ","-")
     with urllib.request.urlopen(get_article_url) as url:
         news_details_data = url.read()
@@ -62,10 +62,10 @@ def process_results(news_list):
     '''
     news_results = []
     for news_item in news_list:
-        source = news_item.get('source')
-        content = news_item.get("content")
-        if content:
-            news_object = News(source,content)
-            news_results.append(news_object)
+        source_name = news_item.get('name')
+        source_id = news_item.get("id")
+        brief_description = news_item.get("description")
+        news_object = News(source_name,source_id,brief_description)
+        news_results.append(news_object)
 
     return news_results
