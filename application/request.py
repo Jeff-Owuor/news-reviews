@@ -32,8 +32,8 @@ def get_source():
 
     return news_results
 
-def get_article(id):
-    get_articles_url = article_url.format(id,"4fd2b95bee8d40c581f5588f3a0a9c35")
+def get_article(country):
+    get_articles_url = article_url.format(country,"4fd2b95bee8d40c581f5588f3a0a9c35")
     get_article_url = get_articles_url.replace(" ","-")
     with urllib.request.urlopen(get_article_url) as url:
         news_details_data = url.read()
@@ -64,7 +64,7 @@ def process_results(news_list):
     for news_item in news_list:
         source_name = news_item.get('name')
         source_id = news_item.get("id")
-        brief_description = news_item.get("description")
-        news_object = News(source_name,source_id,brief_description)
+        url = news_item.get("url")
+        news_object = News(source_name,source_id,url)
         news_results.append(news_object)
     return news_results

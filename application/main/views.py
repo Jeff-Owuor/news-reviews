@@ -11,9 +11,6 @@ def index():
     '''
     # Getting popular movie
     all_sources = get_source()
-    return render_template('index.html',all_sources = all_sources)
-
-@main.route('/article/<id>')
-def article(id):
-    article = get_article(id)
-    return render_template('article.html',article_gen = article)
+    headlines_from_us = get_article("us")
+    headlines_from_sa = get_article("sa")
+    return render_template('index.html',all_sources = all_sources,headlines_from_us = headlines_from_us,headlines_from_sa = headlines_from_sa)
